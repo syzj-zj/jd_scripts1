@@ -10,7 +10,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: bean_sgin
+    types: jd_bean_sign2
 jobs:
   build:
 
