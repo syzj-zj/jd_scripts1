@@ -33,7 +33,7 @@ jobs:
         run: |
           cd ~/scripts
           node jd_immortal.js
-	  node jd_immortal_answer.js
+          node jd_immortal_answer.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
