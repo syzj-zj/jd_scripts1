@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_bean_change
+name: jd_nian
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0,20 * * *'
+    - cron: '30 * * * *'
   watch:
     types: started
   repository_dispatch:
-    types: bean_change
+    types: jd_nian
 env:
   TZ: Asia/Shanghai
 jobs:
@@ -22,6 +22,7 @@ jobs:
       - name: Checkout
         run: |
           git clone https://github.com/269569205/jd_scripts.git ~/scripts
+          sed -i "s/GITHUB/xxxxx/g" `grep GITHUB -rl ~/scripts`
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
@@ -30,15 +31,15 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【京豆变动通知】'
+      - name: '运行 炸年兽'
         run: |
           cd ~/scripts
-	  node jd_bean_home.js
-          node jd_necklace.js
-          node jd_bean_change.js
-          node jd_syj.js
-	  node jd_daily_egg.js
-	  node jd_family.js
+          echo 开始年兽ar
+          node jd_nian_wechat.js
+          node jd_nian_ar.js
+          node jd_nian_sign.js
+          node jd_nianCollect.js
+          node jd_nian.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}

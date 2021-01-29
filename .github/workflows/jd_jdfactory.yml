@@ -1,18 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_bean_change
+name: jd_jdfactory
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0,20 * * *'
+    - cron: '10 * * * *'
   watch:
     types: started
   repository_dispatch:
-    types: bean_change
-env:
-  TZ: Asia/Shanghai
+    types: jd_jdfactory
 jobs:
   build:
 
@@ -21,7 +19,9 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/269569205/jd_scripts.git ~/scripts
+          git clone -b  master https://github.com/269569205/jd_scripts.git ~/scripts
+          cd ~/scripts
+          ls -l
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
@@ -30,18 +30,16 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【京豆变动通知】'
+      - name: '运行 【京东工厂】'
         run: |
           cd ~/scripts
-	  node jd_bean_home.js
-          node jd_necklace.js
-          node jd_bean_change.js
-          node jd_syj.js
-	  node jd_daily_egg.js
-	  node jd_family.js
+          ls -l
+          node jd_jdfactory.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
+          JOY_FEED_COUNT: ${{ secrets.JOY_FEED_COUNT }}
+          JOY_RUN_FLAG: ${{ secrets.JOY_RUN_FLAG }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
           BARK_SOUND: ${{ secrets.BARK_SOUND }}
@@ -50,4 +48,3 @@ jobs:
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
-          JD_818_SHAREID_NOTIFY: ${{ secrets.JD_818_SHAREID_NOTIFY }}
