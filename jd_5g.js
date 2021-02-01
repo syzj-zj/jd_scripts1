@@ -46,8 +46,14 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://rdcseason.m.jd.com/api/';
 const inviteCodes = [
-  '8ce25343-ed32-4237-9a6f-633154ef00bc@7a181ae9-cecf-49a0-b73f-17a9c40c5b5e@95722ebc-fed5-4c79-bde6-ff61ab93af4d',
-  ''
+  '8ce25343-ed32-4237-9a6f-633154ef00bc@7a181ae9-cecf-49a0-b73f-17a9c40c5b5e@95722ebc-fed5-4c79-bde6-ff61ab93af4d@b132e139-8f5d-4e88-a49b-db5dfa8001cb@12cd00f5-0b9f-42d0-acfd-0f8e4e980646@4b3cc07f-1fdc-4b4c-b446-a179bc8ffade',
+  '8ce25343-ed32-4237-9a6f-633154ef00bc@7a181ae9-cecf-49a0-b73f-17a9c40c5b5e@95722ebc-fed5-4c79-bde6-ff61ab93af4d@b132e139-8f5d-4e88-a49b-db5dfa8001cb@12cd00f5-0b9f-42d0-acfd-0f8e4e980646@4b3cc07f-1fdc-4b4c-b446-a179bc8ffade',
+ '8ce25343-ed32-4237-9a6f-633154ef00bc@7a181ae9-cecf-49a0-b73f-17a9c40c5b5e@95722ebc-fed5-4c79-bde6-ff61ab93af4d@b132e139-8f5d-4e88-a49b-db5dfa8001cb@12cd00f5-0b9f-42d0-acfd-0f8e4e980646@4b3cc07f-1fdc-4b4c-b446-a179bc8ffade',
+ '8ce25343-ed32-4237-9a6f-633154ef00bc@7a181ae9-cecf-49a0-b73f-17a9c40c5b5e@95722ebc-fed5-4c79-bde6-ff61ab93af4d@b132e139-8f5d-4e88-a49b-db5dfa8001cb@12cd00f5-0b9f-42d0-acfd-0f8e4e980646@4b3cc07f-1fdc-4b4c-b446-a179bc8ffade',
+ '8ce25343-ed32-4237-9a6f-633154ef00bc@7a181ae9-cecf-49a0-b73f-17a9c40c5b5e@95722ebc-fed5-4c79-bde6-ff61ab93af4d@b132e139-8f5d-4e88-a49b-db5dfa8001cb@12cd00f5-0b9f-42d0-acfd-0f8e4e980646@4b3cc07f-1fdc-4b4c-b446-a179bc8ffade',
+ '8ce25343-ed32-4237-9a6f-633154ef00bc@7a181ae9-cecf-49a0-b73f-17a9c40c5b5e@95722ebc-fed5-4c79-bde6-ff61ab93af4d@b132e139-8f5d-4e88-a49b-db5dfa8001cb@12cd00f5-0b9f-42d0-acfd-0f8e4e980646@4b3cc07f-1fdc-4b4c-b446-a179bc8ffade',
+ '8ce25343-ed32-4237-9a6f-633154ef00bc@7a181ae9-cecf-49a0-b73f-17a9c40c5b5e@95722ebc-fed5-4c79-bde6-ff61ab93af4d@b132e139-8f5d-4e88-a49b-db5dfa8001cb@12cd00f5-0b9f-42d0-acfd-0f8e4e980646@4b3cc07f-1fdc-4b4c-b446-a179bc8ffade',
+
 ];
 !(async () => {
   await requireConfig();
