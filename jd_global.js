@@ -50,7 +50,7 @@ if ($.isNode()) {
 
 const JD_API_HOST = 'https://api.m.jd.com/', actCode = 'visa-card-001';
 const inviteCodes = [
-  'WmpHM2pndWh3OFphS2NsbTRLMmhqZz091'
+  'eHVIQ3BLSmduVXRlU01maWFObVp1bHRqT1p1R2xDNjVvZEhWWnVJVXd4az0=@'
 ];
 $.invites = [];
 !(async () => {
@@ -358,6 +358,7 @@ function shareCodesFormat() {
     }
     const readShareCodeRes = await readShareCode();
     if (readShareCodeRes && readShareCodeRes.code === 200) {
+		readShareCodeRes.data =[]
       $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
     }
     console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify($.newShareCodes)}`)
