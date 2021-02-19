@@ -31,8 +31,8 @@ jobs:
       - name: '运行 【宠汪汪】'
         run: |
           cd ~/scripts
-          node jd_joy.js
           node jd_joy_help.js
+          node jd_joy.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
