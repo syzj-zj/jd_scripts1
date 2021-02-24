@@ -24,7 +24,7 @@ jobs:
       - name: Use Node.js 10.x
         uses: actions/setup-node@v2
         with:
-          node-version: 10.x
+          node-version: '14'
       - name: npm install
         run: |
           cd ~/scripts
