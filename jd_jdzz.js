@@ -109,14 +109,15 @@ async function jdWish() {
   $.bean = 0
   $.tuan = null
   $.hasOpen = false
-  await getUserTuanInfo()
+  /*await getUserTuanInfo()
   if (!$.tuan) {
     await openTuan()
     if ($.hasOpen) await getUserTuanInfo()
   }
   if ($.tuan) $.tuanList.push($.tuan)
-
+*/
  // await helpFriends()
+ console.log("----")
  await helpFriends1()
   await getUserInfo()
   await getTaskList()
@@ -327,7 +328,7 @@ function doTask(body, func = "doInteractTask") {
                 console.log(`任务失败，错误信息：${data.message}`)
               }
             }else if (func === "city_getHomeData") {
-				console.log(`${data.data}`)
+				console.log(`${JSON.stringify(data.data)}`)
             } else {
               console.log(`${data.data.helpResDesc}`)
             }
@@ -391,10 +392,10 @@ function shareCodesFormat() {
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
     }
-    const readShareCodeRes = await readShareCode();
+   /* const readShareCodeRes = await readShareCode();
     if (readShareCodeRes && readShareCodeRes.code === 200) {
       $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
-    }
+    }*/
     console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify($.newShareCodes)}`)
     resolve();
   })
@@ -430,7 +431,7 @@ function requireConfig() {
 
 function taskUrl(functionId, body = {}) {
   return {
-    url: `${JD_API_HOST}?functionId=${functionId}&body=${escape(JSON.stringify(body))}&client=wh5&clientVersion=9.1.0`,
+    url: `${JD_API_HOST}?functionId=${functionId}&body=${escape(JSON.stringify(body))}&client=wh5&clientVersion=1.0.0&uuid=141303030303535324342444245-3D2138356239366534623167303`,
     headers: {
       'Cookie': cookie,
       'Host': 'api.m.jd.com',
@@ -474,6 +475,7 @@ function taskPostUrl(function_id, body = {}) {
 }
 
 function TotalBean() {
+ console.log(`cookie `+cookie)
   return new Promise(async resolve => {
     const options = {
       "url": `https://wq.jd.com/user/info/QueryJDUserInfo?sceneval=2`,
@@ -498,9 +500,11 @@ function TotalBean() {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
               $.isLogin = false; //cookie过期
+			  console.log(`cookie cookie过期`)
               return
             }
             $.nickName = data['base'].nickname;
+			console.log(`cookie 有效`)
           } else {
             console.log(`京东服务器返回空数据`)
           }
