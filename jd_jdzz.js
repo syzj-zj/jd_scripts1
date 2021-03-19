@@ -326,6 +326,8 @@ function doTask(body, func = "doInteractTask") {
               } else {
                 console.log(`任务失败，错误信息：${data.message}`)
               }
+            }else if (func === "city_getHomeData") {
+				console.log(`${data.data.result.toasts.msg}`)
             } else {
               console.log(`${data.data.helpResDesc}`)
             }
