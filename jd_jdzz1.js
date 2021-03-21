@@ -24,7 +24,7 @@ const $ = new Env('京东赚赚');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-let helpAuthor=false; // 帮助作者
+let helpAuthor=true; // 帮助作者
 const randomCount = $.isNode() ? 20 : 5;
 let jdNotify = true; // 是否关闭通知，false打开通知推送，true关闭通知推送
 //IOS等用户直接用NobyDa的jd cookie
@@ -46,16 +46,9 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const inviteCodes = [
-  `HY3lyeimRQyleYv1V5h_mieobVVTVc1t1YhP8NgKTfswNQ@RtGKl5fZEmjJIMbof4JOmh97XVHpJ7cvKJNK44s-_bDXwPLm@HoPszeqtQwqmMs_WF5h_mvkQEtr0zcc4o0sDPf4h@RtGKzO33Rg-hKIuaF90w1tmcXqVxLgKG4tDyLCWDmSHBnb7j1Q@HY3syemmSAOjf4b1V5h_muRuVIEIxrVcrIZj11mH1qRpww@RtGKvrjQG3DRC_3DbZ5CmnpxgVOYYTF63IxQZjA3pU8c92Su`,
- `HY3lyeimRQyleYv1V5h_mieobVVTVc1t1YhP8NgKTfswNQ@RtGKl5fZEmjJIMbof4JOmh97XVHpJ7cvKJNK44s-_bDXwPLm@HoPszeqtQwqmMs_WF5h_mvkQEtr0zcc4o0sDPf4h@RtGKzO33Rg-hKIuaF90w1tmcXqVxLgKG4tDyLCWDmSHBnb7j1Q@HY3syemmSAOjf4b1V5h_muRuVIEIxrVcrIZj11mH1qRpww@RtGKvrjQG3DRC_3DbZ5CmnpxgVOYYTF63IxQZjA3pU8c92Su`,
- `HY3lyeimRQyleYv1V5h_mieobVVTVc1t1YhP8NgKTfswNQ@RtGKl5fZEmjJIMbof4JOmh97XVHpJ7cvKJNK44s-_bDXwPLm@HoPszeqtQwqmMs_WF5h_mvkQEtr0zcc4o0sDPf4h@RtGKzO33Rg-hKIuaF90w1tmcXqVxLgKG4tDyLCWDmSHBnb7j1Q@HY3syemmSAOjf4b1V5h_muRuVIEIxrVcrIZj11mH1qRpww@RtGKvrjQG3DRC_3DbZ5CmnpxgVOYYTF63IxQZjA3pU8c92Su`,
- `HY3lyeimRQyleYv1V5h_mieobVVTVc1t1YhP8NgKTfswNQ@RtGKl5fZEmjJIMbof4JOmh97XVHpJ7cvKJNK44s-_bDXwPLm@HoPszeqtQwqmMs_WF5h_mvkQEtr0zcc4o0sDPf4h@RtGKzO33Rg-hKIuaF90w1tmcXqVxLgKG4tDyLCWDmSHBnb7j1Q@HY3syemmSAOjf4b1V5h_muRuVIEIxrVcrIZj11mH1qRpww@RtGKvrjQG3DRC_3DbZ5CmnpxgVOYYTF63IxQZjA3pU8c92Su`,
- `HY3lyeimRQyleYv1V5h_mieobVVTVc1t1YhP8NgKTfswNQ@RtGKl5fZEmjJIMbof4JOmh97XVHpJ7cvKJNK44s-_bDXwPLm@HoPszeqtQwqmMs_WF5h_mvkQEtr0zcc4o0sDPf4h@RtGKzO33Rg-hKIuaF90w1tmcXqVxLgKG4tDyLCWDmSHBnb7j1Q@HY3syemmSAOjf4b1V5h_muRuVIEIxrVcrIZj11mH1qRpww@RtGKvrjQG3DRC_3DbZ5CmnpxgVOYYTF63IxQZjA3pU8c92Su`,
- `HY3lyeimRQyleYv1V5h_mieobVVTVc1t1YhP8NgKTfswNQ@RtGKl5fZEmjJIMbof4JOmh97XVHpJ7cvKJNK44s-_bDXwPLm@HoPszeqtQwqmMs_WF5h_mvkQEtr0zcc4o0sDPf4h@RtGKzO33Rg-hKIuaF90w1tmcXqVxLgKG4tDyLCWDmSHBnb7j1Q@HY3syemmSAOjf4b1V5h_muRuVIEIxrVcrIZj11mH1qRpww@RtGKvrjQG3DRC_3DbZ5CmnpxgVOYYTF63IxQZjA3pU8c92Su`,
- `HY3lyeimRQyleYv1V5h_mieobVVTVc1t1YhP8NgKTfswNQ@RtGKl5fZEmjJIMbof4JOmh97XVHpJ7cvKJNK44s-_bDXwPLm@HoPszeqtQwqmMs_WF5h_mvkQEtr0zcc4o0sDPf4h@RtGKzO33Rg-hKIuaF90w1tmcXqVxLgKG4tDyLCWDmSHBnb7j1Q@HY3syemmSAOjf4b1V5h_muRuVIEIxrVcrIZj11mH1qRpww@RtGKvrjQG3DRC_3DbZ5CmnpxgVOYYTF63IxQZjA3pU8c92Su`,
- `HY3lyeimRQyleYv1V5h_mieobVVTVc1t1YhP8NgKTfswNQ@RtGKl5fZEmjJIMbof4JOmh97XVHpJ7cvKJNK44s-_bDXwPLm@HoPszeqtQwqmMs_WF5h_mvkQEtr0zcc4o0sDPf4h@RtGKzO33Rg-hKIuaF90w1tmcXqVxLgKG4tDyLCWDmSHBnb7j1Q@HY3syemmSAOjf4b1V5h_muRuVIEIxrVcrIZj11mH1qRpww@RtGKvrjQG3DRC_3DbZ5CmnpxgVOYYTF63IxQZjA3pU8c92Su`,
- `HY3lyeimRQyleYv1V5h_mieobVVTVc1t1YhP8NgKTfswNQ@RtGKl5fZEmjJIMbof4JOmh97XVHpJ7cvKJNK44s-_bDXwPLm@HoPszeqtQwqmMs_WF5h_mvkQEtr0zcc4o0sDPf4h@RtGKzO33Rg-hKIuaF90w1tmcXqVxLgKG4tDyLCWDmSHBnb7j1Q@HY3syemmSAOjf4b1V5h_muRuVIEIxrVcrIZj11mH1qRpww@RtGKvrjQG3DRC_3DbZ5CmnpxgVOYYTF63IxQZjA3pU8c92Su`,
-  ]
+  `ATGEC3-fsrn13aiaEqiM@AUWE5maSSnzFeDmH4iH0elA@ATGEC3-fsrn13aiaEqiM@AUWE5m6WUmDdZC2mr1XhJlQ@AUWE5m_jEzjJZDTKr3nwfkg@A06fNSRc4GIqY38pMBeLKQE2InZA@AUWE5mf7ExDZdDmH7j3wfkA@AUWE5m6jBy2cNAWX7j31Pxw@AUWE5mK2UnDddDTX61S1Mkw@AUWE5mavGyGZdWzP5iCoZwQ`,
+  `ATGEC3-fsrn13aiaEqiM@AUWE5maSSnzFeDmH4iH0elA@ATGEC3-fsrn13aiaEqiM@AUWE5m6WUmDdZC2mr1XhJlQ@AUWE5m_jEzjJZDTKr3nwfkg@A06fNSRc4GIqY38pMBeLKQE2InZA@AUWE5m6_BmTUPAGH42SpOkg@AUWE53NTIs3V8YBqthQMI@AUWE5m6yVxTJcWjWr3nRIlw`
+]
 !(async () => {
   $.tuanList = []
   await requireConfig();
@@ -109,16 +102,14 @@ async function jdWish() {
   $.bean = 0
   $.tuan = null
   $.hasOpen = false
-  /*await getUserTuanInfo()
+  await getUserTuanInfo()
   if (!$.tuan) {
     await openTuan()
     if ($.hasOpen) await getUserTuanInfo()
   }
   if ($.tuan) $.tuanList.push($.tuan)
-*/
- // await helpFriends()
- console.log("----")
- await helpFriends1()
+
+  await helpFriends()
   await getUserInfo()
   await getTaskList()
   $.nowBean = parseInt($.totalBeanNum)
@@ -327,8 +318,6 @@ function doTask(body, func = "doInteractTask") {
               } else {
                 console.log(`任务失败，错误信息：${data.message}`)
               }
-            }else if (func === "city_getHomeData") {
-				console.log(`${JSON.stringify(data.data)}`)
             } else {
               console.log(`${data.data.helpResDesc}`)
             }
@@ -347,13 +336,6 @@ async function helpFriends() {
   for (let code of $.newShareCodes) {
     if (!code) continue
     await doTask({"itemId": code, "taskId": "3", "mpVersion": "3.4.0"}, "doHelpTask")
-  }
-}
-
-async function helpFriends1() {
-  for (let code of $.newShareCodes) {
-    if (!code) continue
-    await doTask({"lbsCity":"12","realLbsCity":"984","inviteId":code,"headImg":"","userName":""}, "city_getHomeData")
   }
 }
 function readShareCode() {
@@ -392,10 +374,10 @@ function shareCodesFormat() {
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
     }
-   /* const readShareCodeRes = await readShareCode();
+    const readShareCodeRes = await readShareCode();
     if (readShareCodeRes && readShareCodeRes.code === 200) {
       $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
-    }*/
+    }
     console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify($.newShareCodes)}`)
     resolve();
   })
@@ -431,7 +413,7 @@ function requireConfig() {
 
 function taskUrl(functionId, body = {}) {
   return {
-    url: `${JD_API_HOST}?functionId=${functionId}&body=${escape(JSON.stringify(body))}&client=wh5&clientVersion=1.0.0&uuid=141303030303535324342444245-3D2138356239366534623167303`,
+    url: `${JD_API_HOST}?functionId=${functionId}&body=${escape(JSON.stringify(body))}&client=wh5&clientVersion=9.1.0`,
     headers: {
       'Cookie': cookie,
       'Host': 'api.m.jd.com',
@@ -475,7 +457,6 @@ function taskPostUrl(function_id, body = {}) {
 }
 
 function TotalBean() {
- console.log(`cookie `+cookie)
   return new Promise(async resolve => {
     const options = {
       "url": `https://wq.jd.com/user/info/QueryJDUserInfo?sceneval=2`,
@@ -500,11 +481,9 @@ function TotalBean() {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
               $.isLogin = false; //cookie过期
-			  console.log(`cookie cookie过期`)
               return
             }
             $.nickName = data['base'].nickname;
-			console.log(`cookie 有效`)
           } else {
             console.log(`京东服务器返回空数据`)
           }
