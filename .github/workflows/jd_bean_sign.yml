@@ -32,7 +32,6 @@ jobs:
         run: |
           cd ~/scripts
           node jd_bean_sign.js
-          node jd_ms_redrain.js
           node jd_speed_redpocke.js
           node jd_speed_sign.js
         env:
