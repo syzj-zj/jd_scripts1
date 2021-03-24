@@ -31,7 +31,6 @@ jobs:
       - name: '运行 【京东赚赚】'
         run: |
           cd ~/scripts
-          node jd_jdzz.js
           node jd_ra.js
           node jd_jdzz1.js
         env:
