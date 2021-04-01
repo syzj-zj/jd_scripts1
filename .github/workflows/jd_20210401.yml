@@ -33,7 +33,6 @@ jobs:
       - name: '运行 【京豆变动通知】'
         run: |
           cd ~/scripts
-          node jd_sister.js
           node jd_shop_lottery.js
           node jd_shop_follow_sku.js
           node jd_shop_add_to_car.js
