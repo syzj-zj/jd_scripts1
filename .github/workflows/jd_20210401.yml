@@ -42,7 +42,6 @@ jobs:
           node jd_marketLottery.js
           node jd_lenovo.js
           node jd_inter_shop_sign.js
-          node jd_grassy.js
           node jd_entertainment.js
           node jd_axc.js
           node jd_cfdtx.js
@@ -54,7 +53,6 @@ jobs:
           node jd_xmf.js
           node jd_xxl_gh.js
           node jx_products_detail.js
-          node jd_shopsign.js
           node jd_shop_lottery.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
