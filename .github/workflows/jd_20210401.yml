@@ -33,7 +33,6 @@ jobs:
       - name: '运行 【京豆变动通知】'
         run: |
           cd ~/scripts
-          node jd_unionPoster.js
           node jd_superDay.js
           node jd_super5g.js
           node jd_sjkhc.js
