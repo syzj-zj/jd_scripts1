@@ -33,7 +33,6 @@ jobs:
           cd ~/scripts
           node jd_shop.js
           node jd_shopsign.js
-          node jd_dpqdfz.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
