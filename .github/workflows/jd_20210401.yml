@@ -45,7 +45,6 @@ jobs:
           node jd_entertainment.js
           node jd_axc.js
           node jd_cfdtx.js
-          node jd_dpqdfz.js
           node jd_oneplus.js
           node jd_paopao.js
           node jd_wish.js
